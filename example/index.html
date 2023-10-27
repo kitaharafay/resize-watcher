@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../dist/resizeWatcher.iife.js"></script>
+</head>
+
+<body>
+    <div id="box"></div>
+    <script>
+        const el = document.getElementById('box')
+        const resizeWatcher = ResizeWatcher.create(el, {
+            immediate: true,
+            handler(res) {
+                console.log(res)
+                console.log('resized')
+            }
+        })
+        resizeWatcher.mount()
+    </script>
+</body>
+
+</html>
