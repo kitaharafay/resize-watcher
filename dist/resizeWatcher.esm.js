@@ -980,16 +980,16 @@ var defaultResizeWatcherOptions = {
 };
 var elMap = new WeakMap();
 var R = ResizeObserver !== null && ResizeObserver !== void 0 ? ResizeObserver : index;
-var ResizeWatcher = /** @class */ (function () {
-    function ResizeWatcher(el, options) {
+var Watcher = /** @class */ (function () {
+    function Watcher(el, options) {
         this.el = el;
         var _options = __assign(__assign({}, defaultResizeWatcherOptions), options);
         this.options = _options;
     }
-    ResizeWatcher.create = function (el, options) {
-        return new ResizeWatcher(el, options);
+    Watcher.create = function (el, options) {
+        return new Watcher(el, options);
     };
-    ResizeWatcher.prototype.mount = function () {
+    Watcher.prototype.mount = function () {
         var firstTrigger = true;
         var _a = this, options = _a.options, el = _a.el;
         var immediate = options.immediate, duration = options.duration, handler = options.handler;
@@ -1002,7 +1002,7 @@ var ResizeWatcher = /** @class */ (function () {
                 if (!firstTrigger) {
                     debounceFn === null || debounceFn === void 0 ? void 0 : debounceFn(item.contentRect);
                 }
-                if (!immediate && firstTrigger) {
+                else {
                     firstTrigger = false;
                 }
             });
@@ -1010,13 +1010,13 @@ var ResizeWatcher = /** @class */ (function () {
         resizeObserver.observe(el);
         elMap.set(el, resizeObserver);
     };
-    ResizeWatcher.prototype.unmount = function () {
+    Watcher.prototype.unmount = function () {
         var el = this.el;
         var resizeObserver = elMap.get(el);
         resizeObserver === null || resizeObserver === void 0 ? void 0 : resizeObserver.unobserve(el);
         elMap.delete(el);
     };
-    return ResizeWatcher;
+    return Watcher;
 }());
 
-export { ResizeWatcher };
+export { Watcher };

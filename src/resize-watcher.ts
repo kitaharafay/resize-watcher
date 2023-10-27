@@ -17,7 +17,7 @@ const elMap = new WeakMap<HTMLElement, ResizeObserver>()
 
 const R = ResizeObserver ?? ResizeObserverPolyfill
 
-class ResizeWatcher {
+export class Watcher {
   private el: HTMLElement
   private options: ResizeWatcherOptions
   constructor(el: HTMLElement, options?: ResizeWatcherOptions) {
@@ -28,7 +28,7 @@ class ResizeWatcher {
     this.options = _options
   }
   static create(el: HTMLElement, options: ResizeWatcherOptions) {
-    return new ResizeWatcher(el, options)
+    return new Watcher(el, options)
   }
   mount() {
     let firstTrigger = true
@@ -42,8 +42,7 @@ class ResizeWatcher {
         }
         if (!firstTrigger) {
           debounceFn?.(item.contentRect)
-        }
-        if (!immediate && firstTrigger) {
+        } else {
           firstTrigger = false
         }
       })
@@ -58,5 +57,3 @@ class ResizeWatcher {
     elMap.delete(el)
   }
 }
-
-export { ResizeWatcher }
