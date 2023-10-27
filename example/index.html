@@ -9,6 +9,7 @@
 
   <body>
     <div id="box"></div>
+    <div id="box2"></div>
     <script>
       const el = document.getElementById('box')
       const { Watcher } = ResizeWatcher
@@ -20,6 +21,14 @@
         }
       })
       watcher.mount()
+
+      const el2 = document.getElementById('box2')
+      const watcher2 = new ResizeWatcher.Watcher(el2, {
+        handler() {
+          console.log('watcher2 resized')
+        }
+      })
+      watcher2.mount()
     </script>
   </body>
 </html>

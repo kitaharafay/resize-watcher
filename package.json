@@ -2,14 +2,35 @@
   "name": "resize-watcher",
   "version": "0.1.0",
   "description": "Listen for element size changes",
-  "main": "index.js",
+  "main": "dist/resizeWatcher.iife.min.js",
+  "module": "dist/resizeWatcher.esm.min.js",
+  "types": "dist/types/index.d.ts",
   "type": "module",
   "scripts": {
     "build": "rollup -c"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "keywords": [
+    "resize",
+    "resize-watcher"
+  ],
+  "bugs": {
+    "url": "https://github.com/kitaharafay/resize-watcher/issues"
+  },
+  "files": [
+    "dist/*.js",
+    "dist/types/*.d.ts"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kitaharafay/resize-watcher.git"
+  },
+  "engines": {
+    "node": ">=18.0.0",
+    "npm": ">=8.0.0",
+    "pnpm": ">=8.0.0"
+  },
+  "author": "kitaharafay",
+  "license": "MIT",
   "devDependencies": {
     "@rollup/plugin-node-resolve": "^15.2.3",
     "@rollup/plugin-terser": "^0.4.4",
