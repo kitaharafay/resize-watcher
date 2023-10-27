@@ -7,7 +7,7 @@ export declare class Watcher {
     private el;
     private options;
     constructor(el: HTMLElement, options?: ResizeWatcherOptions);
-    static create(el: HTMLElement, options: ResizeWatcherOptions): Watcher;
+    static create(el: HTMLElement, options?: ResizeWatcherOptions): Watcher;
     mount(): void;
     unmount(): void;
 }

@@ -27,7 +27,7 @@ export class Watcher {
 
     this.options = _options
   }
-  static create(el: HTMLElement, options: ResizeWatcherOptions) {
+  static create(el: HTMLElement, options?: ResizeWatcherOptions) {
     return new Watcher(el, options)
   }
   mount() {
