@@ -1,6 +1,6 @@
 {
   "name": "resize-watcher",
-  "version": "0.1.1",
+  "version": "0.2.0",
   "description": "Listen for element size changes",
   "main": "dist/resizeWatcher.iife.min.js",
   "module": "dist/resizeWatcher.esm.min.js",
