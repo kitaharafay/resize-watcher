@@ -10,6 +10,7 @@
   <body>
     <div id="box"></div>
     <div id="box2"></div>
+    <div id="box3"></div>
     <script>
       const el = document.getElementById('box')
       const { Watcher } = ResizeWatcher
@@ -29,6 +30,28 @@
         }
       })
       watcher2.mount()
+
+      const el3 = document.getElementById('box3')
+      const watcher3 = new ResizeWatcher.Watcher(el3, {
+        mode: 'threshold',
+        immediate: true,
+        duration: 0,
+        threshold: [
+          {
+            range: [400, 500],
+            handler: () => {
+              console.log(1)
+            }
+          },
+          {
+            range: [800, 900],
+            handler: () => {
+              console.log(2)
+            }
+          }
+        ]
+      })
+      watcher3.mount()
     </script>
   </body>
 </html>
